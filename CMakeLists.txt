@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 
-project(Qt7Zip VERSION 1.0.0 LANGUAGES C CXX)
+project(QLzma VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -15,4 +15,4 @@ if(WIN32)
 else()
     add_subdirectory(unix)
 endif()
-add_subdirectory(q7z)
+add_subdirectory(qlzma)

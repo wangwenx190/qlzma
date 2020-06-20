@@ -1,4 +1,4 @@
-# 7-Zip for Qt
+# LZMA SDK for Qt
 
 从 Qt Installer Framework 中提取出来的 7z 部分
 
