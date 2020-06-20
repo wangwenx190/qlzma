@@ -1,0 +1,22 @@
+file(GLOB_RECURSE HEADERS FOLLOW_SYMLINKS LIST_DIRECTORIES false CONFIGURE_DEPENDS *.h)
+file(GLOB_RECURSE SOURCES FOLLOW_SYMLINKS LIST_DIRECTORIES false CONFIGURE_DEPENDS *.c *.cpp)
+
+add_library(7z STATIC ${HEADERS} ${SOURCES})
+
+if(MSVC)
+    target_compile_options(7z PRIVATE -utf-8)
+endif()
+target_compile_definitions(7z PRIVATE
+    UNICODE
+    _UNICODE
+    _NO_CRYPTO
+    WIN_LONG_PATH
+    _CRT_SECURE_NO_WARNINGS
+    #WIN32_LEAN_AND_MEAN
+)
+target_include_directories(7z PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/C>"
+)
+target_include_directories(7z PUBLIC
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CPP>"
+)
